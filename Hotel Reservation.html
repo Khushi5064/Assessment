@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Booking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: aquamarine;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 50px;
+            border: #fff;
+        }
+        label, input, select {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Restaurant Booking Form</h1>
+        <form id="bookingForm">
+            <label for="bookingType">Choice of booking:</label>
+            <select id="bookingType" name="bookingType">
+                <option value="fullDay">Full day booking</option>
+                <option value="halfDay">Half day booking</option>
+                <option value="hourly">Hourly booking</option>
+            </select>
+
+            <label for="userName">User name:</label>
+            <input type="text" id="userName" name="userName" required>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="partySize">No of person:</label>
+            <input type="number" id="partySize" name="partySize" required>
+
+            <div id="dynamicFields">
+                <!-- Dynamic fields will be inserted here -->
+            </div>
+
+            <button type="submit">Submit Booking</button>
+        </form>
+    </div>
+
+    <script>
+        const bookingForm = document.getElementById("bookingForm");
+        const dynamicFields = document.getElementById("dynamicFields");
+
+        document.getElementById("bookingType").addEventListener("change", function () {
+            const selectedBookingType = this.value;
+            dynamicFields.innerHTML = ""; // Clear any previous dynamic fields
+
+            if (selectedBookingType === "halfDay") {
+                const dateLabel = document.createElement("label");
+                dateLabel.setAttribute("for", "date");
+                dateLabel.textContent = "Date:";
+                dynamicFields.appendChild(dateLabel);
+
+                const dateInput = document.createElement("input");
+                dateInput.setAttribute("type", "date");
+                dateInput.setAttribute("id", "date");
+                dateInput.setAttribute("name", "date");
+                dynamicFields.appendChild(dateInput);
+                
+                const slotLabel = document.createElement("label");
+                slotLabel.setAttribute("for", "slot");
+                slotLabel.textContent = "Slot:";
+                dynamicFields.appendChild(slotLabel);
+
+                const slotSelect = document.createElement("select");
+                slotSelect.setAttribute("id", "slot");
+                slotSelect.setAttribute("name", "slot");
+                dynamicFields.appendChild(slotSelect);
+
+                const slotOptions = ["Breakfast", "Lunch", "Dinner"];
+                slotOptions.forEach(option => {
+                    const slotOption = document.createElement("option");
+                    slotOption.setAttribute("value", option.toLowerCase());
+                    slotOption.textContent = option;
+                    slotSelect.appendChild(slotOption);
+                } 
+                );
+            } else if (selectedBookingType === "hourly") {
+                const dateLabel = document.createElement("label");
+                dateLabel.setAttribute("for", "date");
+                dateLabel.textContent = "Date:";
+                dynamicFields.appendChild(dateLabel);
+
+                const dateInput = document.createElement("input");
+                dateInput.setAttribute("type", "date");
+                dateInput.setAttribute("id", "date");
+                dateInput.setAttribute("name", "date");
+                dynamicFields.appendChild(dateInput);
+
+                const timeLabel = document.createElement("label");
+                timeLabel.setAttribute("for", "time");
+                timeLabel.textContent = "Time:";
+                dynamicFields.appendChild(timeLabel);
+
+                const timeInput = document.createElement("input");
+                timeInput.setAttribute("type", "time");
+                timeInput.setAttribute("id", "time");
+                timeInput.setAttribute("name", "time");
+                dynamicFields.appendChild(timeInput);
+            }
+            else if (selectedBookingType === "fullDay") {
+                const dateLabel = document.createElement("label");
+                dateLabel.setAttribute("for", "date");
+                dateLabel.textContent = "Date:";
+                dynamicFields.appendChild(dateLabel);
+
+                const dateInput = document.createElement("input");
+                dateInput.setAttribute("type", "date");
+                dateInput.setAttribute("id", "date");
+                dateInput.setAttribute("name", "date");
+                dynamicFields.appendChild(dateInput);
+            }
+        });
+
+        bookingForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+
+            // Convert formData to JSON
+            const bookingData = {};
+            formData.forEach((value, key) => {
+                bookingData[key] = value;
+            });
+
+            // Display booking information
+            alert("Booking Details:\n" + JSON.stringify(bookingData, null, 2));
+        });
+    </script>
+</body>
+</html>
