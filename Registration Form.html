@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <fieldset>
+        <legend>Person Info</legend>
+    <form>
+        <table>
+            <tr>
+                <td colspan="2">
+                    <h1 class="h1"><big>Registration Form</big></h1>
+                </td>
+            </tr>
+
+            <tr>
+                <td> <label for="fname"><big>First Name :</big> </label></td>
+                <td><input type="text" class="firstname"></td>
+            </tr>
+
+            <tr>
+                <td><label for="lname" class="lastname"><big>Last Name :</big> </label></td>
+                <td><input type="text" name="lname" id="lname"></td>
+            </tr>
+
+            <tr>
+                <td><label for="email" class="email"><big>E-mail :</big></label></td>
+                <td><input type="email" name="email" id="email"></td>
+            </tr>
+
+            <tr>
+                <td><label for="number" class="number"><big>Mobile :</big> </label></td>
+                <td><input type="tel" name="number" id="numnber"></td>
+            </tr>
+
+            <tr>
+                <td><label for="gender" class="male"><big>Gender :</big> </label></td>
+                <td>
+                    <input type="radio" name="gender" id="male">Male
+                    <input type="radio" name="gender" id="female">Female
+                </td>
+            </tr>
+
+            <tr>
+                <td> <label for="dob" class="dob"><big>DOB :</big></label></td>
+                <td><input type="date" name="date" id="date"></td>
+            </tr>
+     
+            <tr>
+                <td><label for="address" class="address"><big>Address :</big> </label></td>
+                <td> <textarea name="address" id="address" cols="20" rows="5" class="area"></textarea></td>
+            </tr>
+
+            <tr>
+                <td><label for="city" class="city"><big>City :</big> </label></td>
+                <td><input type="text" name="city" id="city"></td>
+            </tr>
+
+            <tr>
+                <td><label for="pin" class="pin"><big>Area Pin :</big> </label></td>
+                <td><input type="tel" name="pin" id="pin"></td>
+            </tr>
+
+            <tr>
+                <td><label for="state" class="state"><big>State :</big> </label></td>
+                <td><input type="text" name="state" id="state"></td>
+            </tr>
+
+            <!-- <tr>
+                <td><label for="number"><big>Contect number :</big> </label></td>
+                <td><input type="tel" name="" id=""></td>
+            </tr> -->
+
+            <tr>
+                <td><label for="subject" class="subject"><big>Qualification : </big></label></td>
+                <td>
+                    <select name="subject" id="">
+                        <option value="">--Select Option--</option>
+                        <option value="10th pass">10th Pass</option>
+                        <option value="12th pass">12th Pass</option>
+                        <option value="graduate">Graduate</option>
+                        <option value="post graduate">Post Graduate</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="hobbies" class="hobbies"><big>Specialization :</big> </label></td>
+                <td>
+                    <input type="checkbox" name="" id="">Computer Science
+                    <br/><input type="checkbox" name="" id="">Information Technology
+                    <br/><input type="checkbox" name="" id="">Computer Architecture
+                    <br/><input type="checkbox" name="" id="">Tele Communication
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="password" class="password"><big>Password :</big></label></td>
+                <td> <input type="password" name="password" id="password"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="submit"><input type="submit" name="submit" id="submit" class="submit" onclick="Welcome">
+                    <input type="reset" name="reset" id="reset" class="reset"></td>
+            </tr>
+</table>
+</form>
+</fieldset>
+</body>
+</html>
